@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<title>maplibre-arrows</title>
+		<meta charset="utf-8" />
+		<script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+		<script src="/src/index.js"></script>
+
+		<link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				padding: 1rem;
+				font-family: sans-serif;
+				background: black;
+			}
+			p {
+				margin: 0.5em 0;
+				margin-bottom: 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>maplibre-arrows</h1>
+		<p>Maplibre plugin for drawing vector arrows</p>
+		<div id="map" style="width: 900px; height: 700px"></div>
+		<script>
+			const map = new maplibregl.Map({
+				container: "map",
+				style: "https://demotiles.maplibre.org/style.json",
+				center: [15, 60],
+				zoom: 3
+			});
+			const arrows = new maplibreArrows(map, {
+				arrows: [
+					{
+						layout: "quadratic",
+						color: "orange",
+						points: [
+							[0, 0],
+							[10, 10],
+							[5, 16]
+						]
+					}
+				]
+			});
+		</script>
+
+		<script>
+			new EventSource("/esbuild").addEventListener("change", () => location.reload());
+		</script>
+	</body>
+</html>
