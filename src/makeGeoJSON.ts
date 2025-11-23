@@ -1,27 +1,25 @@
-import { type Map } from "maplibre-gl";
-import { type JsonArrow, V2 } from "./types";
+import { type Map, type PointLike } from "maplibre-gl";
+import { type JsonArrow } from "./types";
 
 const makeGeoJSON = (ars: JsonArrow[] = [], map: Map) => {
 	if (!map) return { type: "FeatureCollection", features: [] } as GeoJSON.GeoJSON;
 
-	const tails = ars.map((a, i) => {
+	const tails = ars.map((arrow, i) => {
 		return {
 			type: "Feature",
-			geometry: { type: "LineString", coordinates: a.points },
-			properties: { width: a.width, kind: "arrow-tail", id: i }
+			geometry: { type: "LineString", coordinates: arrow.points },
+			properties: { width: arrow.width, kind: "arrow-tail", id: i, color: arrow.color }
 		};
 	});
 
 	const heads = ars.map((arrow, i) => {
-		const a = Object.values(map.project(arrow.points[arrow.points.length - 1])) as V2;
-		const b = Object.values(map.project(arrow.points[arrow.points.length - 2])) as V2;
+		const a = Object.values(map.project(arrow.points[arrow.points.length - 1])) as PointLike;
+		const b = Object.values(map.project(arrow.points[arrow.points.length - 2])) as PointLike;
 
 		const ab = [b[0] - a[0], b[1] - a[1]];
 		const d = Math.sqrt(ab[0] * ab[0] + ab[1] * ab[1]);
 		const t = [-ab[1] / d, ab[0] / d];
-		const s = arrow.headScale
-			? [arrow.width * arrow.headScale[0], arrow.width * arrow.headScale[1]]
-			: [arrow.width * 1.33, arrow.width * 1.5];
+		const s = [arrow.width * arrow.headScale[0], arrow.width * arrow.headScale[1]];
 
 		const coordinates = [
 			map?.unproject(a).toArray(),
@@ -33,7 +31,7 @@ const makeGeoJSON = (ars: JsonArrow[] = [], map: Map) => {
 		return {
 			type: "Feature",
 			geometry: { type: "Polygon", coordinates: [coordinates] },
-			properties: { kind: "arrow-head", id: ars.length + i }
+			properties: { kind: "arrow-head", id: ars.length + i, color: arrow.color }
 		};
 	});
 

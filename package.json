@@ -1,6 +1,6 @@
 {
 	"name": "maplibre-arrows",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"description": "Maplibre plugin for drawing arrows",
 	"keywords": [
 		"maplibre",

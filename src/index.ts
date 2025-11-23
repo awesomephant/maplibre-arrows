@@ -1,4 +1,4 @@
-import { type Map } from "maplibre-gl";
+import { type Color, type Map } from "maplibre-gl";
 import type { ArrowSpec, Config, JsonArrow } from "./types";
 
 import { quadraticToPoints } from "./utils";
@@ -10,6 +10,7 @@ class MaplibreArrows {
 	layerIdPrefix: string;
 	sourceId: string;
 	map: Map;
+	private lineColors: string[];
 	private jsonData: JsonArrow[];
 
 	constructor(map: Map, config: Config) {
@@ -21,10 +22,19 @@ class MaplibreArrows {
 
 		this.jsonData = this.computeJsonData(this.arrows);
 
+		this.lineColors = Array.from(
+			new Set(
+				this.arrows.map((a) => {
+					return a.lineColor || "black";
+				})
+			)
+		);
+
 		this.map.on("load", () => {
 			this.addSource();
 			this.addLayers();
 		});
+
 		this.map.on("zoom", () => {
 			this.updateSource();
 		});
@@ -35,9 +45,10 @@ class MaplibreArrows {
 			const points = a.layout === "straight" ? a.points : quadraticToPoints(a.points);
 			return {
 				width: a.lineWidth || 10,
-				headScale: a.headScale || [2, 2],
+				headScale: a.headScale || [1.25, 1.5],
+				color: a.lineColor || "black",
 				points
-			};
+			} as JsonArrow;
 		});
 	}
 
@@ -48,33 +59,36 @@ class MaplibreArrows {
 
 	private updateSource() {
 		const data = makeGeoJSON(this.jsonData, this.map);
-		this.map?.getSource(this.sourceId).setData(data);
+		this.map?.getSource(this.sourceId)?.setData(data);
 	}
 
 	private addLayers() {
-		this.map.addLayer(
-			{
-				id: `${this.layerIdPrefix}_tails`,
-				source: this.sourceId,
-				filter: ["==", "kind", "arrow-tail"],
-				type: "line",
-				paint: {
-					"line-gradient": ["interpolate", ["linear"], ["line-progress"], 0, "transparent", 0.4, "red"],
-					"line-width": ["get", "width"]
-				}
-			},
-			this.placeBelow
-		);
 		this.map.addLayer(
 			{
 				id: `${this.layerIdPrefix}_heads`,
 				source: this.sourceId,
 				filter: ["==", "kind", "arrow-head"],
 				type: "fill",
-				paint: { "fill-color": "red" }
+				paint: { "fill-color": ["get", "color"] }
 			},
 			this.placeBelow
 		);
+
+		this.lineColors.forEach((c) => {
+			this.map.addLayer(
+				{
+					id: `${this.layerIdPrefix}_tails_${c}`,
+					source: this.sourceId,
+					filter: ["all", ["==", "kind", "arrow-tail"], ["==", "color", c]],
+					type: "line",
+					paint: {
+						"line-gradient": ["interpolate", ["linear"], ["line-progress"], 0, "transparent", 0.25, c],
+						"line-width": ["get", "width"]
+					}
+				},
+				this.placeBelow
+			);
+		});
 	}
 }
 

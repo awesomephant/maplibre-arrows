@@ -32,21 +32,20 @@
 		<script>
 			const map = new maplibregl.Map({
 				container: "map",
-				style: "https://demotiles.maplibre.org/style.json",
-				center: [15, 60],
+				style: "https://tiles.datenhub.net/assets/styles/colorful/style.json",
+				center: [-40, 40],
 				zoom: 3
 			});
+
 			const arrows = new maplibreArrows(map, {
 				arrows: [
-					{
-						layout: "quadratic",
-						color: "orange",
-						points: [
-							[0, 0],
-							[10, 10],
-							[5, 16]
-						]
-					}
+					{ layout: "quadratic", lineColor: "#af3a1a", lineWidth: 12, points: [[-66, 40], [-60, 52], [-57, 46]]},
+					{ layout: "quadratic", lineColor: "#af3a1a", lineWidth: 6, points: [[-61, 53], [-65, 55], [-62, 54.5]]},
+					{ layout: "quadratic", lineColor: "#af3a1a", lineWidth: 5, points: [[-61, 53], [-62, 55.5], [-62, 54.5]]},
+					{ layout: "straight", lineColor: "#3062a3", lineWidth: 7, points: [[-30, 30], [-15, 30], [-10, 35]]},
+					{ layout: "straight", lineColor: "#3062a3", lineWidth: 5, points: [[-30, 29], [-13, 29]]},
+					{ layout: "straight", lineColor: "#3062a3", lineWidth: 7, points: [[-23, 8], [-23, 18], [-13, 26]]},
+					{ layout: "straight", lineColor: "#13a354", lineWidth: 15, points: [[-50, 52], [-45, 55], [-18, 55]]},
 				]
 			});
 		</script>

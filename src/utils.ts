@@ -62,7 +62,7 @@ const interpolatePolyline = (points: PointLike[], n: number) => {
  * - https://bit-101.com/blog/posts/2024-09-29/evenly-placed-points-on-bezier-curves
  */
 
-const quadraticToPoints = (points: [PointLike, PointLike, PointLike], n = 25) => {
+const quadraticToPoints = (points: PointLike[], n = 48) => {
 	const [a, b, c] = points;
 	let res: PointLike[] = [];
 
