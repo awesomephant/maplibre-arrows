@@ -17,11 +17,21 @@
 			body {
 				padding: 1rem;
 				font-family: sans-serif;
-				background: black;
 			}
 			p {
 				margin: 0.5em 0;
 				margin-bottom: 1em;
+			}
+			.meta {
+			    font-size: .75rem;
+			}
+			pre {
+                tab-size: 4;
+                border: 1px solid gray;
+                display: inline-block;
+                font-size: 1rem;
+                line-height: 1.2;
+                padding: 1rem;
 			}
 		</style>
 	</head>
@@ -29,26 +39,35 @@
 		<h1>maplibre-arrows</h1>
 		<p>Maplibre plugin for drawing vector arrows</p>
 		<div id="map" style="width: 900px; height: 700px"></div>
-		<script>
-			const map = new maplibregl.Map({
-				container: "map",
-				style: "https://tiles.datenhub.net/assets/styles/colorful/style.json",
-				center: [-40, 40],
-				zoom: 3
-			});
+		<p class="meta">MapLibre | © OpenStreetMap contributors</p>
 
-			const arrows = new maplibreArrows(map, {
-				arrows: [
-					{ layout: "quadratic", lineColor: "#af3a1a", lineWidth: 12, points: [[-66, 40], [-60, 52], [-57, 46]]},
-					{ layout: "quadratic", lineColor: "#af3a1a", lineWidth: 6, points: [[-61, 53], [-65, 55], [-62, 54.5]]},
-					{ layout: "quadratic", lineColor: "#af3a1a", lineWidth: 5, points: [[-61, 53], [-62, 55.5], [-62, 54.5]]},
-					{ layout: "straight", lineColor: "#3062a3", lineWidth: 7, points: [[-30, 30], [-15, 30], [-10, 35]]},
-					{ layout: "straight", lineColor: "#3062a3", lineWidth: 5, points: [[-30, 29], [-13, 29]]},
-					{ layout: "straight", lineColor: "#3062a3", lineWidth: 7, points: [[-23, 8], [-23, 18], [-13, 26]]},
-					{ layout: "straight", lineColor: "#13a354", lineWidth: 15, points: [[-50, 52], [-45, 55], [-18, 55]]},
-				]
-			});
-		</script>
+		<pre><script style="display: block;">const map = new maplibregl.Map({
+	container: "map",
+	style: "https://tiles.datenhub.net/assets/styles/colorful/style.json",
+	center: [-96, 35],
+	zoom: 3.3,
+	attributionControl: false
+});
+
+const red = "#bf3a1a";
+const blue = "#3062a3";
+const green = "#13a354";
+
+const arrows = new maplibreArrows(map, {
+	arrows: [
+		{ layout: "quadratic", lineColor: red, lineWidth: 38, points: [[-81, 35], [-88, 43], [-82, 41]]},
+		{ layout: "quadratic", lineColor: red, lineWidth: 22, points: [[-95, 43], [-109, 38], [-105, 44]]},
+		{ layout: "quadratic", lineColor: red, lineWidth: 9, points: [[-99, 44], [-110, 48], [-105, 44]]},
+		{ layout: "quadratic", lineColor: red, lineWidth: 12, points: [[-76, 40], [-70, 45], [-75, 44]]},
+		{ layout: "quadratic", lineColor: red, lineWidth: 6, points: [[-70, 46], [-74, 48], [-71, 48]]},
+		{ layout: "quadratic", lineColor: red, lineWidth: 5, points: [[-70, 46], [-70, 50], [-71, 48]]},
+		{ layout: "straight", lineColor: blue, lineWidth: 20, points: [[-76, 26], [-74, 28], [-74, 38]]},
+		{ layout: "straight", lineColor: blue, lineWidth: 5, points: [[-78, 25], [-78, 32]]},
+		{ layout: "straight", lineColor: blue, lineWidth: 13, points: [[-84, 15], [-79, 19]]},
+		{ layout: "straight", lineColor: green, lineWidth: 30, points: [[-120, 40], [-120, 30], [-110, 20]]},
+		{ layout: "straight", lineColor: green, lineWidth: 9, points: [[-108, 19], [-105, 16], [-95, 16]]},
+	]
+});</script></pre>
 
 		<script>
 			new EventSource("/esbuild").addEventListener("change", () => location.reload());
