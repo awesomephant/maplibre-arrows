@@ -14,8 +14,9 @@
 		"test": "node --test",
 		"watch": "esbuild src/index.ts --outdir=dist --bundle --watch",
 		"build": "run-s build:ts build:types",
-		"build:ts": "esbuild src/index.ts --outdir=./dist --bundle",
-		"build:types": "tsc --declaration src/index.ts --emitDeclarationOnly --outDir ./dist",
+		"build:ts": "esbuild src/index.ts --outdir=./dist --bundle --minify",
+		"build:types": "tsc",
+		"build:demo": "esbuild src/index.ts src/index.html --loader:.html=copy --outdir=./_site --minify",
 		"dev": "esbuild src/index.ts demo/index.html --loader:.html=copy --outdir=./dev --bundle --watch --servedir=./dev"
 	},
 	"devDependencies": {

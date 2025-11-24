@@ -1,9 +1,9 @@
-import type { PointLike } from "maplibre-gl";
+import type { LngLatLike, PointLike } from "maplibre-gl";
 
 /**
  * Returns the euclidian distance between two points
  */
-const distance = (a: PointLike, b: PointLike) => {
+const distance = (a: LngLatLike, b: LngLatLike) => {
 	return Math.sqrt((b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2);
 };
 
@@ -26,8 +26,8 @@ const getSortedIndex = (arr: number[], v: number) => {
  * Given a polyline, returns n evenly-spaced points on the polyline,
  * always including the first and last points
  */
-const interpolatePolyline = (points: PointLike[], n: number) => {
-	let res: PointLike[] = [];
+const interpolatePolyline = (points: LngLatLike[], n: number) => {
+	let res: LngLatLike[] = [];
 	let totalLength: number = 0;
 	let segments: number[] = [0];
 
@@ -62,17 +62,14 @@ const interpolatePolyline = (points: PointLike[], n: number) => {
  * - https://bit-101.com/blog/posts/2024-09-29/evenly-placed-points-on-bezier-curves
  */
 
-const quadraticToPoints = (points: PointLike[], n = 48) => {
+const quadraticToPoints = (points: LngLatLike[], n = 48) => {
 	const [a, b, c] = points;
-	let res: PointLike[] = [];
+	let res: LngLatLike[] = [];
 
 	// 1. Interpolate the quadratic bezier function to obtain an uneven polyline
 	for (let i = 0; i < n; i++) {
 		const t = i / n;
-		res.push([
-			(1 - t) * ((1 - t) * a[0] + t * c[0]) + t * ((1 - t) * c[0] + t * b[0]),
-			(1 - t) * ((1 - t) * a[1] + t * c[1]) + t * ((1 - t) * c[1] + t * b[1])
-		]);
+		res.push([(1 - t) * ((1 - t) * a[0] + t * c[0]) + t * ((1 - t) * c[0] + t * b[0]), (1 - t) * ((1 - t) * a[1] + t * c[1]) + t * ((1 - t) * c[1] + t * b[1])]);
 	}
 
 	// 2. Interpolate the polyline from (1) to get evenly-spaced points

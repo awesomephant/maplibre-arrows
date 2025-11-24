@@ -1,8 +1,8 @@
-import { type Color, type Map } from "maplibre-gl";
-import type { ArrowSpec, Config, JsonArrow } from "./types";
+import { type Color, type Map, type GeoJSONSource } from "maplibre-gl";
+import type { ArrowSpec, Config, JsonArrow } from "./types.js";
 
-import { quadraticToPoints } from "./utils";
-import { makeGeoJSON } from "./makeGeoJSON";
+import { quadraticToPoints } from "./utils.js";
+import { makeGeoJSON } from "./makeGeoJSON.js";
 
 class MaplibreArrows {
 	arrows: ArrowSpec[];
@@ -59,7 +59,7 @@ class MaplibreArrows {
 
 	private updateSource() {
 		const data = makeGeoJSON(this.jsonData, this.map);
-		this.map?.getSource(this.sourceId)?.setData(data);
+		(this.map?.getSource(this.sourceId) as GeoJSONSource)?.setData(data);
 	}
 
 	private addLayers() {
@@ -92,5 +92,5 @@ class MaplibreArrows {
 	}
 }
 
-globalThis.maplibreArrows = MaplibreArrows;
+globalThis["maplibreArrows"] = MaplibreArrows;
 export default MaplibreArrows;

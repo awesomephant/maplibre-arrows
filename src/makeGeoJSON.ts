@@ -1,5 +1,5 @@
 import { type Map, type PointLike } from "maplibre-gl";
-import { type JsonArrow } from "./types";
+import { type JsonArrow } from "./types.js";
 
 const makeGeoJSON = (ars: JsonArrow[] = [], map: Map) => {
 	if (!map) return { type: "FeatureCollection", features: [] } as GeoJSON.GeoJSON;
