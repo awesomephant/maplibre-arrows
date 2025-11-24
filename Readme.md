@@ -9,7 +9,7 @@ Works by adding a GeoJSON source and two vector layers.
 - `npm i` to install dependencies
 - `npm run test` to run unit test (uses Node's built-in test runner)
 - `npm version {patch, minor, major}`
-n
+- `npm publish --access public`
 
 - Uses esbuild
 - Uses the built-in node test runner

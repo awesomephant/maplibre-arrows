@@ -19,9 +19,11 @@
 				padding: 1rem;
 				font-family: sans-serif;
 			}
+			h1 {
+			margin-bottom: .5em;
+			}
 			p {
-				margin: 0.5em 0;
-				margin-bottom: 1em;
+				margin: 1em 0;
 			}
 			.meta {
 			    font-size: .75rem;
@@ -38,7 +40,6 @@
 	</head>
 	<body>
 		<h1>maplibre-arrows</h1>
-		<p>Maplibre plugin for drawing vector arrows</p>
 		<div id="map" style="width: 900px; height: 700px"></div>
 		<p class="meta">MapLibre | © OpenStreetMap contributors</p>
 
@@ -69,9 +70,6 @@ const arrows = new maplibreArrows(map, {
 		{ layout: "straight", lineColor: green, lineWidth: 9, points: [[-108, 19], [-105, 16], [-95, 16]]},
 	]
 });</script></pre>
-
-		<h2>Install</h2>
-		<h2>Use</h2>
 
 		<script>
 			new EventSource("/esbuild").addEventListener("change", () => location.reload());
