@@ -1,14 +1,15 @@
 {
 	"compilerOptions": {
+		"strict": false,
 		"target": "ESNext",
 		"module": "NodeNext",
-		"strict": false,
+		"moduleResolution": "nodenext",
 		"noUncheckedIndexedAccess": true,
 		"noImplicitOverride": true,
 		"outDir": "./dist",
-		"emitDeclarationOnly": true,
-		"moduleResolution": "nodenext",
 		"declaration": true,
+		"emitDeclarationOnly": true,
 		"lib": ["es2022", "dom"]
-	}
+	},
+	"files": ["src/index.ts"]
 }

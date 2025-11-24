@@ -1,23 +1,25 @@
 {
-	"name": "maplibre-arrows",
-	"version": "0.0.1",
-	"description": "Maplibre plugin for drawing arrows",
+	"name": "@awesomephant/maplibre-arrows",
+	"version": "0.0.0",
+	"description": "Maplibre plugin for drawing vector arrows",
 	"keywords": [
 		"maplibre",
 		"arrows"
 	],
 	"license": "ISC",
-	"author": "hello@maxkohler.com",
+	"author": "Max Kohler <hello@maxkohler.com> (https://www.maxkohler.com)",
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
 		"test": "node --test",
-		"watch": "esbuild src/index.ts --outdir=dist --bundle --watch",
+		"preversion": "test",
+		"prepublishOnly": "run-s test build",
 		"build": "run-s build:ts build:types",
 		"build:ts": "esbuild src/index.ts --outdir=./dist --bundle --minify",
 		"build:types": "tsc",
 		"build:demo": "esbuild src/index.ts src/index.html --loader:.html=copy --outdir=./_site --minify",
-		"dev": "esbuild src/index.ts demo/index.html --loader:.html=copy --outdir=./dev --bundle --watch --servedir=./dev"
+		"watch": "esbuild src/index.ts --outdir=dist --bundle --watch",
+		"dev": "esbuild src/index.ts src/index.html --loader:.html=copy --outdir=./_site --bundle --watch --servedir=./_site"
 	},
 	"devDependencies": {
 		"esbuild": "^0.27.0",
@@ -29,8 +31,10 @@
 	"peerDependencies": {
 		"maplibre-gl": "^5.13.0"
 	},
-	"dependencies": {},
 	"exports": {
 		"default": "./dist/index.js"
-	}
+	},
+	"files": [
+		"dist"
+	]
 }
