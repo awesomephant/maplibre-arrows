@@ -20,7 +20,7 @@ yarn add @awesompehant/maplibre-arrows
 ### Browser
 
 ```html
-<script src="https://unpkg.com/@awesomephant/maplibre-arrows@0.0.1/dist/index.js"></script>
+<script src="https://unpkg.com/@awesomephant/maplibre-arrows@latest/dist/index.js"></script>
 ```
 
 ## Usage
@@ -84,7 +84,7 @@ const arrows = new maplibreArrows(map, {
 
 ## Contributing
 
-This project uses esbuild and Node's built-in test runner.
+This project uses [esbuild](https://esbuild.github.io/) and Node's [built-in test runner](https://nodejs.org/api/test.html).
 
 - `npm i` to install dependencies
 - `npm run test` to run unit tests
