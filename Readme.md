@@ -1,23 +1,18 @@
 # maplibre-arrows
 
-[Maplibre]() plugin for drawing vector arrows with geographic coordinates.
+Simple [maplibre-gl-js](https://maplibre.org/maplibre-gl-js/docs/) plugin for drawing vector arrows with geographic coordinates.
 
 ![NPM Version](https://img.shields.io/npm/v/%40awesomephant%2Fmaplibre-arrows)
 
 ## Installation
 
-### NPM
+NPM
 
 ```bash
 npm install --save @awesompehant/maplibre-arrows
 ```
-### Yarn
 
-```bash
-yarn add @awesompehant/maplibre-arrows
-```
-
-### Browser
+Browser
 
 ```html
 <script src="https://unpkg.com/@awesomephant/maplibre-arrows@latest/dist/index.js"></script>
@@ -25,11 +20,13 @@ yarn add @awesompehant/maplibre-arrows
 
 ## Usage
 
+HTML
 
 ```html
 <div id="map"></div>
 ```
 
+Javasript
 
 ```js
 // Initialise maplibregl
@@ -67,12 +64,13 @@ const arrows = new maplibreArrows(map, {
 })
 ```
 
-## Options
+## Parameters
 
 `maplibreArrows()` takes two parameters:
 
 - `map` (required): [`Map`](https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/)
-- `options` (required): `ArrowSpec[]`
+- `options` (required): configuration object of the following shape:
+  - `ArrowSpec[]` (required): The initial set of arrows to render
 
 `ArrowSpec` is an object of the following shape:
 
