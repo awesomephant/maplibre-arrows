@@ -2,7 +2,7 @@
 
 Simple [maplibre-gl-js](https://maplibre.org/maplibre-gl-js/docs/) plugin for drawing vector arrows with geographic coordinates.
 
-![NPM Version](https://img.shields.io/npm/v/%40awesomephant%2Fmaplibre-arrows)
+[![NPM Version](https://img.shields.io/npm/v/%40awesomephant%2Fmaplibre-arrows)](https://www.npmjs.com/package/@awesomephant/maplibre-arrows)
 
 ## Installation
 
