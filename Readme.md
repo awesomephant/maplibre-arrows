@@ -64,7 +64,7 @@ const arrows = new maplibreArrows(map, {
 })
 ```
 
-## Parameters
+## Configuration
 
 `maplibreArrows()` takes two parameters:
 
