@@ -1,8 +1,10 @@
 # maplibre-arrows
 
-Simple [maplibre-gl-js](https://maplibre.org/maplibre-gl-js/docs/) plugin for drawing vector arrows with geographic coordinates. See [this blog post](https://www.maxkohler.com/posts/maplibre-arrows/) for a demo and motivation.
+Simple [maplibre-gl-js](https://maplibre.org/maplibre-gl-js/docs/) plugin for drawing vector arrows with geographic coordinates. See [this blog post](https://www.maxkohler.com/posts/maplibre-arrows/) for a live demo and motivation.
 
 [![NPM Version](https://img.shields.io/npm/v/%40awesomephant%2Fmaplibre-arrows)](https://www.npmjs.com/package/@awesomephant/maplibre-arrows)
+
+<img width="952" height="488" alt="Screenshot of arrows on map" src="https://github.com/user-attachments/assets/244311ca-c1b0-405c-b288-796dda5f7518" />
 
 ## Installation
 
