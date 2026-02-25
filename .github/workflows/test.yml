@@ -1,4 +1,4 @@
-name: "unit tests"
+name: "Tests"
 on:
   workflow_dispatch:
   pull_request:

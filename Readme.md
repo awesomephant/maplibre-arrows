@@ -49,20 +49,10 @@ const arrows = new maplibreArrows(map, {
 			points: [
 				[-81, 35],
 				[-88, 43],
-				[-82, 41],
-			],
-		},
-		{
-			layout: 'quadratic',
-			lineColor: '#bf3a1a',
-			lineWidth: 22,
-			points: [
-				[-95, 43],
-				[-109, 38],
-				[-105, 44],
-			],
-		},
-	],
+				[-82, 41]
+			]
+		}
+	]
 })
 ```
 
