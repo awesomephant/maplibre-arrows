@@ -33,26 +33,22 @@ Javasript
 ```js
 // Initialise maplibregl
 const map = new maplibregl.Map({
-	container: 'map',
-	style: 'https://demotiles.maplibre.org/style.json',
-	center: [-96, 35],
-	zoom: 3.3,
+  container: 'map',
+  style: 'https://demotiles.maplibre.org/style.json',
+  center: [-96, 35],
+  zoom: 3.3
 })
 
 // Initialise maplibreArrows with the map object and a configuration object
 const arrows = new maplibreArrows(map, {
-	arrows: [
-		{
-			layout: 'straight',
-			lineColor: '#bf3a1a',
-			lineWidth: 38,
-			points: [
-				[-81, 35],
-				[-88, 43],
-				[-82, 41]
-			]
-		}
-	]
+  arrows: [
+    {
+      layout: 'straight',
+      lineColor: '#bf3a1a',
+      lineWidth: 38,
+      points: [[-81, 35], [-88, 43], [-82, 41]]
+    }
+  ]
 })
 ```
 
