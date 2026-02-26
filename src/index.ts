@@ -1,4 +1,4 @@
-import { type Color, type Map, type GeoJSONSource } from "maplibre-gl";
+import { type Map, type GeoJSONSource } from "maplibre-gl";
 import type { ArrowSpec, Config, JsonArrow } from "./types.js";
 
 import { quadraticToPoints } from "./utils.js";
