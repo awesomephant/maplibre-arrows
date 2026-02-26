@@ -22,7 +22,7 @@ describe("makeGeoJSON", () => {
 		assert.deepEqual(result, { type: "FeatureCollection", features: [] });
 	});
 
-	it("produces expected JSON", (t) => {
+	it("returns expected GeoJSON", (t) => {
 		const arrows = [
 			{
 				width: 10,

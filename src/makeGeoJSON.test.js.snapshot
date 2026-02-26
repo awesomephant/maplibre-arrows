@@ -1,4 +1,4 @@
-exports[`makeGeoJSON > produces expected JSON 1`] = `
+exports[`makeGeoJSON > returns expected GeoJSON 1`] = `
 {
   "type": "FeatureCollection",
   "features": [
