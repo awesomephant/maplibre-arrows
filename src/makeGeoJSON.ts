@@ -1,5 +1,5 @@
 import { type Map, type PointLike } from "maplibre-gl";
-import { type JsonArrow } from "./types.js";
+import { type JsonArrow } from "./types.ts";
 
 const makeGeoJSON = (ars: JsonArrow[] = [], map: Map) => {
 	if (!map) return { type: "FeatureCollection", features: [] } as GeoJSON.GeoJSON;
@@ -22,10 +22,10 @@ const makeGeoJSON = (ars: JsonArrow[] = [], map: Map) => {
 		const s = [arrow.width * arrow.headScale[0], arrow.width * arrow.headScale[1]];
 
 		const coordinates = [
-			map?.unproject(a).toArray(),
-			map?.unproject([a[0] + t[0] * s[0], a[1] + t[1] * s[0]]).toArray(),
-			map?.unproject([a[0] - (ab[0] / d) * s[0], a[1] - (ab[1] / d) * s[1]]).toArray(),
-			map?.unproject([a[0] - t[0] * s[0], a[1] - t[1] * s[0]]).toArray()
+			map.unproject(a).toArray(),
+			map.unproject([a[0] + t[0] * s[0], a[1] + t[1] * s[0]]).toArray(),
+			map.unproject([a[0] - (ab[0] / d) * s[0], a[1] - (ab[1] / d) * s[1]]).toArray(),
+			map.unproject([a[0] - t[0] * s[0], a[1] - t[1] * s[0]]).toArray()
 		];
 
 		return {

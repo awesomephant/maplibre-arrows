@@ -9,6 +9,7 @@
 		"outDir": "./dist",
 		"declaration": true,
 		"emitDeclarationOnly": true,
+		"allowImportingTsExtensions": true,
 		"lib": ["es2022", "dom"]
 	},
 	"files": ["src/index.ts"]

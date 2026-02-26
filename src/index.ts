@@ -10,6 +10,7 @@ class MaplibreArrows {
 	layerIdPrefix: string;
 	sourceId: string;
 	map: Map;
+
 	private lineColors: string[];
 	private jsonData: JsonArrow[];
 
