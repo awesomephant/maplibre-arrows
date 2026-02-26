@@ -1,0 +1,60 @@
+exports[`makeGeoJSON > returns expected GeoJSON 1`] = `
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            10
+          ]
+        ]
+      },
+      "properties": {
+        "width": 10,
+        "kind": "arrow-tail",
+        "id": 0,
+        "color": "red"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10,
+              10
+            ],
+            [
+              17.071067811865476,
+              2.9289321881345254
+            ],
+            [
+              17.071067811865476,
+              17.071067811865476
+            ],
+            [
+              2.9289321881345254,
+              17.071067811865476
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "arrow-head",
+        "id": 1,
+        "color": "red"
+      }
+    }
+  ]
+}
+`;
