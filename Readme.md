@@ -18,7 +18,7 @@ npm install --save @awesompehant/maplibre-arrows
 Browser
 
 ```html
-<script src="https://unpkg.com/@awesomephant/maplibre-arrows@latest/dist/index.js"></script>
+<script src="https://unpkg.com/@awesomephant/maplibre-arrows@latest/dist/index.min.js"></script>
 ```
 
 ## Usage
