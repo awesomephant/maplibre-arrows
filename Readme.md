@@ -80,3 +80,4 @@ This project uses [esbuild](https://esbuild.github.io/) and Node's [built-in tes
 - `npm run test` to run unit tests
 - `npm version {patch, minor, major}`
 - `npm publish --access public`
+  

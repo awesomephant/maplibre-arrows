@@ -6,7 +6,7 @@
 		"maplibre",
 		"arrows"
 	],
-	"license": "ISC",
+	"license": "MIT",
 	"author": "Max Kohler <hello@maxkohler.com> (https://www.maxkohler.com)",
 	"type": "module",
 	"main": "index.js",
