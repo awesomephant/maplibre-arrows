@@ -1,7 +1,7 @@
-import { it, describe } from "node:test";
+import test, { it, describe } from "node:test";
 import assert from "node:assert/strict";
 
-import { distance, getSortedIndex, interpolatePolyline } from "./utils.ts";
+import { distance, getSortedIndex, interpolatePolyline, quadraticToPoints } from "./utils.ts";
 
 describe("distance()", () => {
 	it("works along x", () => {
@@ -57,5 +57,21 @@ describe("interpolatePolyline()", () => {
 			[0, 7.5],
 			[0, 10]
 		]);
+	});
+});
+
+describe("quadraticToPoints", () => {
+	test("returns expected point count", () => {
+		assert.strictEqual(
+			quadraticToPoints(
+				[
+					[0, 0],
+					[5, 5],
+					[10, 10]
+				],
+				5
+			).length,
+			5
+		);
 	});
 });

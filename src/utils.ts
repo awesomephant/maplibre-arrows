@@ -1,4 +1,4 @@
-import type { LngLatLike, PointLike } from "maplibre-gl";
+import type { LngLatLike } from "maplibre-gl";
 
 /**
  * Returns the euclidian distance between two points

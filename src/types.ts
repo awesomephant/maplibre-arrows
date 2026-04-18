@@ -1,4 +1,4 @@
-import type { Color, LngLatLike } from "maplibre-gl";
+import type { LngLatLike } from "maplibre-gl";
 
 interface Config {
 	id: string;
