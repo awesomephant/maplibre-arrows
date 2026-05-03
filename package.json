@@ -1,6 +1,6 @@
 {
 	"name": "@awesomephant/maplibre-arrows",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "Maplibre plugin for drawing vector arrows",
 	"keywords": [
 		"maplibre",
